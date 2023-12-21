@@ -4,7 +4,11 @@ import Main from '../src/Component/Main';
 
 function App() {
   return (
-  <Main></Main>
+    //jsx fragment
+    <>
+      <Main></Main>
+      <Main />
+    </>
   );
 }
 
