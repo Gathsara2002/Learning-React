@@ -7,7 +7,7 @@ function App() {
     //jsx fragment
     <>
       <Main></Main>
-      <Main />
+      <Main name="prop"/>
     </>
   );
 }
