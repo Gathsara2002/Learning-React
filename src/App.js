@@ -6,7 +6,9 @@ function App() {
   return (
     //jsx fragment
     <>
-      <Main></Main>
+      <Main>
+        <h1> Hi this child component</h1>
+      </Main>
       <Main name="prop"/>
     </>
   );

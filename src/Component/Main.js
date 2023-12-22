@@ -7,6 +7,7 @@ function Main(props) {
                 <li>angular js</li>
                 <li>vuej s</li>
             </ul>
+            {props.children}
         </div>
         );
 }
