@@ -5,7 +5,7 @@ function Main(props) {
             <ul>
                 <li>react js</li>
                 <li>angular js</li>
-                <li>vuej s</li>
+                <li>vue js</li>
             </ul>
             {props.children}
         </div>
