@@ -1,8 +1,14 @@
-const address='Galle';
+const address = 'Galle';
+
+const myObj = {
+    salary: 1000000000
+}
 
 function Main(props) {
 
     const name = 'Gathsara';
+
+    const { salary } = myObj;
 
     return (
         <div>
@@ -13,6 +19,7 @@ function Main(props) {
                 <li>vue js</li>
                 <li>{name}</li>
                 <li>{address}</li>
+                <li>{salary}</li>
             </ul>
             {props.children}
         </div>
