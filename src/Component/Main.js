@@ -17,6 +17,7 @@ function Main(props) {
                 <li>react js</li>
                 <li>angular js</li>
                 <li>vue js</li>
+                <li>next js</li>
                 <li>{name}</li>
                 <li>{address}</li>
                 <li>{salary}</li>
