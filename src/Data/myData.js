@@ -1,4 +1,4 @@
-const myData = [
+ export const myData = [
     {
       name: 'Gathsara',
       city: 'Galle',
@@ -12,4 +12,4 @@ const myData = [
     }
   ];
 
-  export default myData;
+  //export default myData;

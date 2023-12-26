@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Main from '../src/Component/Main';
 import Task from './Component/Task';
-import myData from './Data/myData';
+//export default - import myData from './Data/myData';
+import { myData } from './Data/myData';
 
 function App() {
   return (
