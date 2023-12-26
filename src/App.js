@@ -2,20 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Main from '../src/Component/Main';
 import Task from './Component/Task';
-
-const myData = [
-  {
-    name: 'Gathsara',
-    city: 'Galle',
-    salary: 1000000
-  },
-
-  {
-    name: 'Liviru',
-    city: 'Ambalangoda',
-    salary: 12000000
-  }
-];
+import myData from './Data/myData';
 
 function App() {
   return (
