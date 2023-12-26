@@ -9,7 +9,8 @@ function App() {
       <Main>
         <h1> Hi this child component</h1>
       </Main>
-      <Main name="prop"/>
+      <Main name="This is a prop"/>
+      <Main cusParam='This is custom parameter'/>
     </>
   );
 }

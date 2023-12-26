@@ -21,6 +21,7 @@ function Main(props) {
                 <li>{name}</li>
                 <li>{address}</li>
                 <li>{salary}</li>
+                <li>{props.cusParam}</li>
             </ul>
             {props.children}
         </div>
