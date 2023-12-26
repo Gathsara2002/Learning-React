@@ -31,13 +31,13 @@ function App() {
 
     <>
     //Without object destruturing
-      {myData.map((ele) => {
-        return <Task name={ele.name} city={ele.city} salary={ele.salary} />
+      {myData.map((ele, index) => {
+        return <Task key={index} name={ele.name} city={ele.city} salary={ele.salary} />
       })}
 
       //With object destruturing
-      {myData.map(({ name, city, salary }) => {
-        return <Task name={name} city={city} salary={salary} />
+      {myData.map(({ name, city, salary }, index) => {
+        return <Task key={index} name={name} city={city} salary={salary} />
       })}
     </>
 
