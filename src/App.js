@@ -6,11 +6,23 @@ import Task from './Component/Task';
 import { myData } from './Data/myData';
 import Content from './Component/Content';
 
+let myVar = "Gathsara";
+
+const clickOnHandle = () => {
+  myVar = "Liviru";
+  alert(myVar);
+}
+
 function App() {
 
   const content = myData.map(({ name, city, salary, image }, index) => {
     return <Content key={index} name={name} city={city} salary={salary} image={image} />
   });
+
+  const clickOnHandle2 = (a) => {
+    alert(a);
+  };
+
 
   return (
 
@@ -37,6 +49,8 @@ function App() {
 
     <div className='mainBlock'>
 
+      <h1>{myVar}</h1>
+
       <div className='mainContainer'>
         {content}
       </div>
@@ -48,14 +62,24 @@ function App() {
           border: "1px solid red",
           padding: "7px 12px"
         }
-      }> Click Me
+      } onClick={clickOnHandle}> Click 1
 
       </button>
 
+      {/* <button style={
+        {
+          fontSize: "12px",
+          border: "1px solid red",
+          padding: "7px 12px"
+        }
+      } onClick={()=>clickOnHandle2("Passing arguments")}> Click 2
+
+      </button>  */}
+
     </div>
 
-
   );
+
 }
 
 export default App;
