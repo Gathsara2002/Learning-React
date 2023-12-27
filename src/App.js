@@ -8,8 +8,8 @@ import Content from './Component/Content';
 
 function App() {
 
-  const content = myData.map(({ name, city, salary }, index) => {
-    return <Content key={index} name={name} city={city} salary={salary} />
+  const content = myData.map(({ name, city, salary, image }, index) => {
+    return <Content key={index} name={name} city={city} salary={salary} image={image} />
   });
 
   return (
