@@ -11,10 +11,6 @@ import { useState } from 'react';
 
 function App() {
 
-  const content = myData.map(({ name, city, salary, image }, index) => {
-    return <Content key={index} name={name} city={city} salary={salary} image={image} />
-  });
-
   // const clickOnHandle2 = (a) => {
   //   alert(a);
   // };
@@ -29,14 +25,29 @@ function App() {
     salary: 1000000
   })
 
+  const [myDataState, seMyDataState] = useState(myData);
+
   const clickOnHandle = () => {
     setMyVar({
       ...myVar,
       name: 'Liviru',
       salary: 5000000000
     });
+
+    seMyDataState([...myData, {
+      name: 'Gathsara',
+      city: 'Galle',
+      salary: 1000000,
+      image: "https://www.ocregister.com/wp-content/uploads/2023/02/hypatia-h_fac40a3d60dff2415c09917e29e49b53-h_80f233feb84cf2f30a294f91eb18e0b7.jpg?w=1024"
+    }]);
+
     console.log(myVar);
+    console.log(myDataState);
   }
+
+  const content = myDataState.map(({ name, city, salary, image }, index) => {
+    return <Content key={index} name={name} city={city} salary={salary} image={image} />
+  });
 
 
   return (
