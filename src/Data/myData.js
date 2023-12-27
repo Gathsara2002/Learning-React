@@ -9,6 +9,18 @@
       name: 'Liviru',
       city: 'Ambalangoda',
       salary: 12000000
+    },
+
+    {
+      name: 'Chavindu',
+      city: 'Coombo',
+      salary: 200000
+    },
+
+    {
+      name: 'Nadeeja',
+      city: 'Matara',
+      salary: 500000
     }
   ];
 
