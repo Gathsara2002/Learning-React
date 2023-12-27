@@ -40,6 +40,17 @@ function App() {
       <div className='mainContainer'>
         {content}
       </div>
+      <br /><br />
+
+      <button style={
+        {
+          fontSize: "12px",
+          border: "1px solid red",
+          padding: "7px 12px"
+        }
+      }> Click Me
+
+      </button>
 
     </div>
 
