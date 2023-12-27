@@ -29,25 +29,36 @@ function App() {
 
   const [inptVal, setInputVal] = useState("Gathsara");
 
+  const [count, setCount] = useState(0);
+
+
+
   const clickOnHandle = () => {
-    setMyVar({
-      ...myVar,
-      name: 'Liviru',
-      salary: 5000000000
-    });
+    // setMyVar({
+    //   ...myVar,
+    //   name: 'Liviru',
+    //   salary: 5000000000
+    // });
 
-    seMyDataState([...myData,
-    {
-      name: 'Gathsara',
-      city: 'Galle',
-      salary: 1000000,
-      image: "https://www.ocregister.com/wp-content/uploads/2023/02/hypatia-h_fac40a3d60dff2415c09917e29e49b53-h_80f233feb84cf2f30a294f91eb18e0b7.jpg?w=1024"
-    }
-    ]);
+    // seMyDataState([...myData,
+    // {
+    //   name: 'Gathsara',
+    //   city: 'Galle',
+    //   salary: 1000000,
+    //   image: "https://www.ocregister.com/wp-content/uploads/2023/02/hypatia-h_fac40a3d60dff2415c09917e29e49b53-h_80f233feb84cf2f30a294f91eb18e0b7.jpg?w=1024"
+    // }
+    // ]);
 
-    console.log(myVar);
-    console.log(myDataState);
-    console.log(inptVal);
+    // console.log(myVar);
+    // console.log(myDataState);
+    // console.log(inptVal);
+
+    setTimeout(() => {
+      console.log("Im clicked");
+      //setCount(count + 1);
+      setCount((prev)=>prev+1);
+    }, 3000);
+
   }
 
   const content = myDataState.map(({ name, city, salary, image }, index) => {
@@ -80,7 +91,7 @@ function App() {
 
     <div className='mainBlock'>
 
-      <h1>{inptVal}</h1>
+      <h1>{count}</h1>
 
       <div className='mainContainer'>
         {content}
