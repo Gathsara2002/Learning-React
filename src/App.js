@@ -20,11 +20,22 @@ function App() {
   // };
 
   //useState hook
-  const[myVar,setMyVar]=useState('Gathsara');
+  //const[myVar,setMyVar]=useState('Gathsara');
+
+  //useState hook with object
+  const [myVar, setMyVar] = useState({
+    name: 'Gathsara',
+    city: 'Galle',
+    salary: 1000000
+  })
 
   const clickOnHandle = () => {
-    setMyVar('Liviru');
-    alert(myVar);
+    setMyVar({
+      ...myVar,
+      name: 'Liviru',
+      salary: 5000000000
+    });
+    console.log(myVar);
   }
 
 
@@ -53,7 +64,7 @@ function App() {
 
     <div className='mainBlock'>
 
-      <h1>{myVar}</h1>
+      <h1>{myVar.name}</h1>
 
       <div className='mainContainer'>
         {content}
