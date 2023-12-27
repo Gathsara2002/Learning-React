@@ -5,13 +5,9 @@ import Task from './Component/Task';
 //export default - import myData from './Data/myData';
 import { myData } from './Data/myData';
 import Content from './Component/Content';
+import { useState } from 'react';
 
-let myVar = "Gathsara";
-
-const clickOnHandle = () => {
-  myVar = "Liviru";
-  alert(myVar);
-}
+//let myVar = "Gathsara";
 
 function App() {
 
@@ -19,9 +15,17 @@ function App() {
     return <Content key={index} name={name} city={city} salary={salary} image={image} />
   });
 
-  const clickOnHandle2 = (a) => {
-    alert(a);
-  };
+  // const clickOnHandle2 = (a) => {
+  //   alert(a);
+  // };
+
+  //useState hook
+  const[myVar,setMyVar]=useState('Gathsara');
+
+  const clickOnHandle = () => {
+    setMyVar('Liviru');
+    alert(myVar);
+  }
 
 
   return (
