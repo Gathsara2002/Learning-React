@@ -167,9 +167,15 @@ const App = () => {
   const [data, SetData] = useState([]);
 
   //use effect deafult
+  // useEffect(()=>{
+  //   console.log("Use effect calling");
+  // });
+
+  //use effect one time
   useEffect(()=>{
     console.log("Use effect calling");
-  });
+  },[]);
+
 
   return (
 
