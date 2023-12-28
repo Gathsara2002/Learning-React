@@ -7,8 +7,9 @@ import './App.css';
 // import Content from './Component/Content';
 // import { useState } from 'react';
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Unit from './Component/Unit';
+import Header from './Component/Header';
 
 // //let myVar = "Gathsara";
 
@@ -166,83 +167,90 @@ const App = () => {
   const [data, SetData] = useState([]);
 
   return (
-    <div className="main_container">
 
-      <div className="main_left">
+    <Fragment>
 
-        <input type="text" value={inpuData.imgUrl} placeholder="Input Image URL" onChange={(e) => {
-          e.preventDefault();
-          setInputData((preInputData) => ({
-            ...preInputData,
-            imgUrl: e.target.value
-          }));
-        }} />
+      <Header></Header>
 
-        <input type="text" value={inpuData.name} placeholder="Input Name" onChange={(e) => {
-          e.preventDefault();
-          setInputData((preInputData) => ({
-            ...preInputData,
-            name: e.target.value
-          }));
-        }} />
+      <div className="main_container">
 
-        <input type="text" value={inpuData.city} placeholder="Input City" onChange={(e) => {
-          e.preventDefault();
-          setInputData((preInputData) => ({
-            ...preInputData,
-            city: e.target.value
-          }));
-        }} />
+        <div className="main_left">
 
-        <input type="text" value={inpuData.position} placeholder="Input Position" onChange={(e) => {
-          e.preventDefault();
-          setInputData((preInputData) => ({
-            ...preInputData,
-            position: e.target.value
-          }));
-        }} />
+          <input type="text" value={inpuData.imgUrl} placeholder="Input Image URL" onChange={(e) => {
+            e.preventDefault();
+            setInputData((preInputData) => ({
+              ...preInputData,
+              imgUrl: e.target.value
+            }));
+          }} />
 
-        <button onClick={() => {
-          console.log({
-            imgUrl: inpuData.imgUrl,
-            name: inpuData.name,
-            city: inpuData.city,
-            position: inpuData.position
-          });
+          <input type="text" value={inpuData.name} placeholder="Input Name" onChange={(e) => {
+            e.preventDefault();
+            setInputData((preInputData) => ({
+              ...preInputData,
+              name: e.target.value
+            }));
+          }} />
 
-          //pass data to array
-          SetData((prev) => {
-            return [
-              ...data,
-              {
-                imgUrl: inpuData.imgUrl,
-                name: inpuData.name,
-                city: inpuData.city,
-                position: inpuData.position
-              }
-            ]
-          });
+          <input type="text" value={inpuData.city} placeholder="Input City" onChange={(e) => {
+            e.preventDefault();
+            setInputData((preInputData) => ({
+              ...preInputData,
+              city: e.target.value
+            }));
+          }} />
 
-          // clear nput field
-          setInputData((pre) => { if (pre.imgUrl.length > 0) { return { ...pre, imgUrl: '' } } else { return pre } });
-          setInputData((pre) => { if (pre.name.length > 0) { return { ...pre, name: '' } } else { return pre } });
-          setInputData((pre) => { if (pre.city.length > 0) { return { ...pre, city: '' } } else { return pre } });
-          setInputData((pre) => { if (pre.position.length > 0) { return { ...pre, position: '' } } else { return pre } });
+          <input type="text" value={inpuData.position} placeholder="Input Position" onChange={(e) => {
+            e.preventDefault();
+            setInputData((preInputData) => ({
+              ...preInputData,
+              position: e.target.value
+            }));
+          }} />
 
-        }}>
-          Submit</button>
+          <button onClick={() => {
+            console.log({
+              imgUrl: inpuData.imgUrl,
+              name: inpuData.name,
+              city: inpuData.city,
+              position: inpuData.position
+            });
+
+            //pass data to array
+            SetData((prev) => {
+              return [
+                ...data,
+                {
+                  imgUrl: inpuData.imgUrl,
+                  name: inpuData.name,
+                  city: inpuData.city,
+                  position: inpuData.position
+                }
+              ]
+            });
+
+            // clear nput field
+            setInputData((pre) => { if (pre.imgUrl.length > 0) { return { ...pre, imgUrl: '' } } else { return pre } });
+            setInputData((pre) => { if (pre.name.length > 0) { return { ...pre, name: '' } } else { return pre } });
+            setInputData((pre) => { if (pre.city.length > 0) { return { ...pre, city: '' } } else { return pre } });
+            setInputData((pre) => { if (pre.position.length > 0) { return { ...pre, position: '' } } else { return pre } });
+
+          }}>
+            Submit</button>
+
+        </div>
+
+        <div className="main_right">
+
+          {data?.map(({ imgUrl, name, city, position }, index) => {
+            return <Unit key={index} imageUrl={imgUrl} name={name} city={city} position={position} />
+          })}
+
+        </div>
 
       </div>
 
-      <div className="main_right">
-
-        {data?.map(({ imgUrl, name, city, position }, index) => {
-          return <Unit key={index} imageUrl={imgUrl} name={name} city={city} position={position} />
-        })}
-
-      </div>
-
-    </div>
+    </Fragment>
   );
 }
 
