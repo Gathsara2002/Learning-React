@@ -150,10 +150,17 @@ import Unit from './Component/Unit';
 const App = () => {
 
   //to check state of input datas
-  const [imgUrl, setImgUrl] = useState('');
-  const [name, setName] = useState('');
-  const [city, setCity] = useState('');
-  const [position, setPosition] = useState('');
+  // const [imgUrl, setImgUrl] = useState('');
+  // const [name, setName] = useState('');
+  // const [city, setCity] = useState('');
+  // const [position, setPosition] = useState('');
+
+  const [inpuData, setInputData] = useState({
+    imgUrl: '',
+    name: '',
+    city: '',
+    position: ''
+  });
 
   //to store data
   const [data, SetData] = useState([]);
@@ -163,32 +170,44 @@ const App = () => {
 
       <div className="main_left">
 
-        <input type="text" value={imgUrl} placeholder="Input Image URL" onChange={(e) => {
+        <input type="text" value={inpuData.imgUrl} placeholder="Input Image URL" onChange={(e) => {
           e.preventDefault();
-          setImgUrl(e.target.value);
+          setInputData((preInputData) => ({
+            ...preInputData,
+            imgUrl: e.target.value
+          }));
         }} />
 
-        <input type="text" value={name} placeholder="Input Name" onChange={(e) => {
+        <input type="text" value={inpuData.name} placeholder="Input Name" onChange={(e) => {
           e.preventDefault();
-          setName(e.target.value);
+          setInputData((preInputData) => ({
+            ...preInputData,
+            name: e.target.value
+          }));
         }} />
 
-        <input type="text" value={city} placeholder="Input City" onChange={(e) => {
+        <input type="text" value={inpuData.city} placeholder="Input City" onChange={(e) => {
           e.preventDefault();
-          setCity(e.target.value);
+          setInputData((preInputData) => ({
+            ...preInputData,
+            city: e.target.value
+          }));
         }} />
 
-        <input type="text" value={position} placeholder="Input Position" onChange={(e) => {
+        <input type="text" value={inpuData.position} placeholder="Input Position" onChange={(e) => {
           e.preventDefault();
-          setPosition(e.target.value);
+          setInputData((preInputData) => ({
+            ...preInputData,
+            position: e.target.value
+          }));
         }} />
 
         <button onClick={() => {
           console.log({
-            imgUrl: imgUrl,
-            name: name,
-            city: city,
-            position: position
+            imgUrl: inpuData.imgUrl,
+            name: inpuData.name,
+            city: inpuData.city,
+            position: inpuData.position
           });
 
           //pass data to array
@@ -196,19 +215,19 @@ const App = () => {
             return [
               ...data,
               {
-                imgUrl: imgUrl,
-                name: name,
-                city: city,
-                position: position
+                imgUrl: inpuData.imgUrl,
+                name: inpuData.name,
+                city: inpuData.city,
+                position: inpuData.position
               }
             ]
           });
 
           // clear nput field
-          setImgUrl((pre) => { if (pre.length > 0) { return '' } else { return pre } });
-          setName((pre) => { if (pre.length > 0) { return '' } else { return pre } });
-          setCity((pre) => { if (pre.length > 0) { return '' } else { return pre } });
-          setPosition((pre) => { if (pre.length > 0) { return '' } else { return pre } });
+          setInputData((pre) => { if (pre.imgUrl.length > 0) { return { ...pre, imgUrl: '' } } else { return pre } });
+          setInputData((pre) => { if (pre.name.length > 0) { return { ...pre, name: '' } } else { return pre } });
+          setInputData((pre) => { if (pre.city.length > 0) { return { ...pre, city: '' } } else { return pre } });
+          setInputData((pre) => { if (pre.position.length > 0) { return { ...pre, position: '' } } else { return pre } });
 
         }}>
           Submit</button>
