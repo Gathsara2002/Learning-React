@@ -172,9 +172,14 @@ const App = () => {
   // });
 
   //use effect one time
-  useEffect(()=>{
+  // useEffect(()=>{
+  //   console.log("Use effect calling");
+  // },[]);
+
+  //use effect dependency
+  useEffect(() => {
     console.log("Use effect calling");
-  },[]);
+  }, [inpuData]);
 
 
   return (
