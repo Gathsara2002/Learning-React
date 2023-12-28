@@ -7,7 +7,7 @@ import './App.css';
 // import Content from './Component/Content';
 // import { useState } from 'react';
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Unit from './Component/Unit';
 import Header from './Component/Header';
 
@@ -165,6 +165,11 @@ const App = () => {
 
   //to store data
   const [data, SetData] = useState([]);
+
+  //use effect deafult
+  useEffect(()=>{
+    console.log("Use effect calling");
+  });
 
   return (
 
