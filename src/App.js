@@ -306,6 +306,11 @@ const App = () => {
         e.preventDefault();
         setApiId(e.target.value);
       }} />
+
+      {dataObj && (<div>
+        <h3>{dataObj.id}</h3>
+        <p>{dataObj.title}</p>
+      </div>)}
     </div>
   );
 }
