@@ -21,9 +21,10 @@ const Header = () => {
           }}
         />
         <ul style={{
-          right: `${clickClose ? '-28px' : '-250px'}`
+          right: `${clickClose ? '-28px' : '-250px'}`,
+          display: `${clickClose ? 'flex' : 'none'}`
         }}>
-          
+
           <div className='header_close'>
             <img src={closeIcon} onClick={() => {
               setClickClose(false);

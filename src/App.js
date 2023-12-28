@@ -168,7 +168,7 @@ const App = () => {
 
   return (
 
-    <Fragment>
+    <div>
 
       <Header></Header>
 
@@ -250,7 +250,7 @@ const App = () => {
 
       </div>
 
-    </Fragment>
+    </div>
   );
 }
 
