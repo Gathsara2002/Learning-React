@@ -148,124 +148,164 @@ import Header from './Component/Header';
 
 // export default App;
 
+// const App = () => {
+
+//   //to check state of input datas
+//   // const [imgUrl, setImgUrl] = useState('');
+//   // const [name, setName] = useState('');
+//   // const [city, setCity] = useState('');
+//   // const [position, setPosition] = useState('');
+
+//   const [inpuData, setInputData] = useState({
+//     imgUrl: '',
+//     name: '',
+//     city: '',
+//     position: ''
+//   });
+
+//   //to store data
+//   const [data, SetData] = useState([]);
+
+//   //use effect deafult
+//   // useEffect(()=>{
+//   //   console.log("Use effect calling");
+//   // });
+
+//   //use effect one time
+//   // useEffect(()=>{
+//   //   console.log("Use effect calling");
+//   // },[]);
+
+//   //use effect dependency
+//   useEffect(() => {
+//     console.log("Use effect calling");
+//   }, [inpuData]);
+
+
+//   return (
+
+//     <div>
+
+//       <Header></Header>
+
+//       <div className="main_container">
+
+//         <div className="main_left">
+
+//           <input type="text" value={inpuData.imgUrl} placeholder="Input Image URL" onChange={(e) => {
+//             e.preventDefault();
+//             setInputData((preInputData) => ({
+//               ...preInputData,
+//               imgUrl: e.target.value
+//             }));
+//           }} />
+
+//           <input type="text" value={inpuData.name} placeholder="Input Name" onChange={(e) => {
+//             e.preventDefault();
+//             setInputData((preInputData) => ({
+//               ...preInputData,
+//               name: e.target.value
+//             }));
+//           }} />
+
+//           <input type="text" value={inpuData.city} placeholder="Input City" onChange={(e) => {
+//             e.preventDefault();
+//             setInputData((preInputData) => ({
+//               ...preInputData,
+//               city: e.target.value
+//             }));
+//           }} />
+
+//           <input type="text" value={inpuData.position} placeholder="Input Position" onChange={(e) => {
+//             e.preventDefault();
+//             setInputData((preInputData) => ({
+//               ...preInputData,
+//               position: e.target.value
+//             }));
+//           }} />
+
+//           <button onClick={() => {
+//             console.log({
+//               imgUrl: inpuData.imgUrl,
+//               name: inpuData.name,
+//               city: inpuData.city,
+//               position: inpuData.position
+//             });
+
+//             //pass data to array
+//             SetData((prev) => {
+//               return [
+//                 ...data,
+//                 {
+//                   imgUrl: inpuData.imgUrl,
+//                   name: inpuData.name,
+//                   city: inpuData.city,
+//                   position: inpuData.position
+//                 }
+//               ]
+//             });
+
+//             // clear nput field
+//             setInputData((pre) => { if (pre.imgUrl.length > 0) { return { ...pre, imgUrl: '' } } else { return pre } });
+//             setInputData((pre) => { if (pre.name.length > 0) { return { ...pre, name: '' } } else { return pre } });
+//             setInputData((pre) => { if (pre.city.length > 0) { return { ...pre, city: '' } } else { return pre } });
+//             setInputData((pre) => { if (pre.position.length > 0) { return { ...pre, position: '' } } else { return pre } });
+
+//           }}>
+//             Submit</button>
+
+//         </div>
+
+//         <div className="main_right">
+
+//           {data?.map(({ imgUrl, name, city, position }, index) => {
+//             return <Unit key={index} imageUrl={imgUrl} name={name} city={city} position={position} />
+//           })}
+
+//         </div>
+
+//       </div>
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
 const App = () => {
 
-  //to check state of input datas
-  // const [imgUrl, setImgUrl] = useState('');
-  // const [name, setName] = useState('');
-  // const [city, setCity] = useState('');
-  // const [position, setPosition] = useState('');
+  const [dataObj, setDataObj] = useState({});
 
-  const [inpuData, setInputData] = useState({
-    imgUrl: '',
-    name: '',
-    city: '',
-    position: ''
-  });
+  const [apiId, setApiId] = useState('1');
+  console.log(apiId);
+  console.log(dataObj);
 
-  //to store data
-  const [data, SetData] = useState([]);
-
-  //use effect deafult
-  // useEffect(()=>{
-  //   console.log("Use effect calling");
-  // });
-
-  //use effect one time
-  // useEffect(()=>{
-  //   console.log("Use effect calling");
-  // },[]);
-
-  //use effect dependency
   useEffect(() => {
-    console.log("Use effect calling");
-  }, [inpuData]);
 
+    if (apiId.length > 0) {
+
+      console.log("use effect calling");
+
+      const apiCall = async () => {
+        const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${apiId}`);
+        const data = await res.json();
+
+        if (data) {
+          setDataObj(data);
+        }
+      }
+
+      apiCall();
+
+    }
+  }, [apiId]);
 
   return (
-
     <div>
-
-      <Header></Header>
-
-      <div className="main_container">
-
-        <div className="main_left">
-
-          <input type="text" value={inpuData.imgUrl} placeholder="Input Image URL" onChange={(e) => {
-            e.preventDefault();
-            setInputData((preInputData) => ({
-              ...preInputData,
-              imgUrl: e.target.value
-            }));
-          }} />
-
-          <input type="text" value={inpuData.name} placeholder="Input Name" onChange={(e) => {
-            e.preventDefault();
-            setInputData((preInputData) => ({
-              ...preInputData,
-              name: e.target.value
-            }));
-          }} />
-
-          <input type="text" value={inpuData.city} placeholder="Input City" onChange={(e) => {
-            e.preventDefault();
-            setInputData((preInputData) => ({
-              ...preInputData,
-              city: e.target.value
-            }));
-          }} />
-
-          <input type="text" value={inpuData.position} placeholder="Input Position" onChange={(e) => {
-            e.preventDefault();
-            setInputData((preInputData) => ({
-              ...preInputData,
-              position: e.target.value
-            }));
-          }} />
-
-          <button onClick={() => {
-            console.log({
-              imgUrl: inpuData.imgUrl,
-              name: inpuData.name,
-              city: inpuData.city,
-              position: inpuData.position
-            });
-
-            //pass data to array
-            SetData((prev) => {
-              return [
-                ...data,
-                {
-                  imgUrl: inpuData.imgUrl,
-                  name: inpuData.name,
-                  city: inpuData.city,
-                  position: inpuData.position
-                }
-              ]
-            });
-
-            // clear nput field
-            setInputData((pre) => { if (pre.imgUrl.length > 0) { return { ...pre, imgUrl: '' } } else { return pre } });
-            setInputData((pre) => { if (pre.name.length > 0) { return { ...pre, name: '' } } else { return pre } });
-            setInputData((pre) => { if (pre.city.length > 0) { return { ...pre, city: '' } } else { return pre } });
-            setInputData((pre) => { if (pre.position.length > 0) { return { ...pre, position: '' } } else { return pre } });
-
-          }}>
-            Submit</button>
-
-        </div>
-
-        <div className="main_right">
-
-          {data?.map(({ imgUrl, name, city, position }, index) => {
-            return <Unit key={index} imageUrl={imgUrl} name={name} city={city} position={position} />
-          })}
-
-        </div>
-
-      </div>
-
+      <input type='text' placeholder='Enter ID' value={apiId} onChange={(e) => {
+        e.preventDefault();
+        setApiId(e.target.value);
+      }} />
     </div>
   );
 }
