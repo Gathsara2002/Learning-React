@@ -56,6 +56,8 @@ function App() {
     setTimeout(() => {
       console.log("Im clicked");
       //setCount(count + 1);
+
+      //get ptrvious value from setCount()
       setCount((prev)=>prev+1);
     }, 3000);
 
