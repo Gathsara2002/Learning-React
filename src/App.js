@@ -8,6 +8,7 @@ import './App.css';
 // import { useState } from 'react';
 
 import { useState } from "react";
+import Unit from './Component/Unit';
 
 // //let myVar = "Gathsara";
 
@@ -157,8 +158,6 @@ const App = () => {
   //to store data
   const [data, SetData] = useState([]);
 
-  console.log(data);
-
   return (
     <div className="main_container">
 
@@ -216,7 +215,13 @@ const App = () => {
 
       </div>
 
-      <div className="main_right"></div>
+      <div className="main_right">
+
+        {data?.map(({ imgUrl, name, city, position }, index) => {
+          return <Unit key={index} imageUrl={imgUrl} name={name} city={city} position={position} />
+        })}
+
+      </div>
 
     </div>
   );
