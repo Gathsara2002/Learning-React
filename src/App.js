@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 // import Main from '../src/Component/Main';
 // import Task from './Component/Task';
 // //export default - import myData from './Data/myData';
@@ -148,10 +148,16 @@ import { useState } from "react";
 
 const App = () => {
 
+  //to check state of input datas
   const [imgUrl, setImgUrl] = useState('');
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
   const [position, setPosition] = useState('');
+
+  //to store data
+  const [data, SetData] = useState([]);
+
+  console.log(data);
 
   return (
     <div className="main_container">
@@ -184,6 +190,19 @@ const App = () => {
             name: name,
             city: city,
             position: position
+          });
+
+          //pass data to array
+          SetData((prev) => {
+            return [
+              ...data,
+              {
+                imgUrl: imgUrl,
+                name: name,
+                city: city,
+                position: position
+              }
+            ]
           });
 
           // clear nput field
