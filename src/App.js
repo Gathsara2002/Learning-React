@@ -276,6 +276,8 @@ const App = () => {
 
   const [dataObj, setDataObj] = useState({});
 
+  const [search, setSearch] = useState(0);
+
   const [apiId, setApiId] = useState('1');
   console.log(apiId);
   console.log(dataObj);
@@ -298,7 +300,8 @@ const App = () => {
       apiCall();
 
     }
-  }, [apiId]);
+
+  }, [search]);
 
   return (
     <div>
@@ -306,6 +309,10 @@ const App = () => {
         e.preventDefault();
         setApiId(e.target.value);
       }} />
+
+      <button onClick={() => {
+        setSearch((prev) => (prev === 0 ? 1 : 0));
+      }}>Search</button>
 
       {dataObj && (<div>
         <h3>{dataObj.id}</h3>
