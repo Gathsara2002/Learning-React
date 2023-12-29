@@ -10,6 +10,7 @@ import './App.css';
 import { Fragment, useEffect, useState } from "react";
 import Unit from './Component/Unit';
 import Header from './Component/Header';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
 
 // //let myVar = "Gathsara";
 
@@ -272,53 +273,61 @@ import Header from './Component/Header';
 
 // export default App;
 
-const App = () => {
+// const App = () => {
 
-  const [dataObj, setDataObj] = useState({});
+//   const [dataObj, setDataObj] = useState({});
 
-  const [search, setSearch] = useState(0);
+//   const [search, setSearch] = useState(0);
 
-  const [apiId, setApiId] = useState('1');
-  console.log(apiId);
-  console.log(dataObj);
+//   const [apiId, setApiId] = useState('1');
+//   console.log(apiId);
+//   console.log(dataObj);
 
-  useEffect(() => {
+//   useEffect(() => {
 
-    if (apiId.length > 0) {
+//     if (apiId.length > 0) {
 
-      console.log("use effect calling");
+//       console.log("use effect calling");
 
-      const apiCall = async () => {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${apiId}`);
-        const data = await res.json();
+//       const apiCall = async () => {
+//         const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${apiId}`);
+//         const data = await res.json();
 
-        if (data) {
-          setDataObj(data);
-        }
-      }
+//         if (data) {
+//           setDataObj(data);
+//         }
+//       }
 
-      apiCall();
+//       apiCall();
 
-    }
+//     }
 
-  }, [search]);
+//   }, [search]);
 
-  return (
-    <div>
-      <input type='text' placeholder='Enter ID' value={apiId} onChange={(e) => {
-        e.preventDefault();
-        setApiId(e.target.value);
-      }} />
+//   return (
+//     <div>
+//       <input type='text' placeholder='Enter ID' value={apiId} onChange={(e) => {
+//         e.preventDefault();
+//         setApiId(e.target.value);
+//       }} />
 
-      <button onClick={() => {
-        setSearch((prev) => (prev === 0 ? 1 : 0));
-      }}>Search</button>
+//       <button onClick={() => {
+//         setSearch((prev) => (prev === 0 ? 1 : 0));
+//       }}>Search</button>
 
-      {dataObj && (<div>
-        <h3>{dataObj.id}</h3>
-        <p>{dataObj.title}</p>
-      </div>)}
-    </div>
+//       {dataObj && (<div>
+//         <h3>{dataObj.id}</h3>
+//         <p>{dataObj.title}</p>
+//       </div>)}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+const App=()=>{
+  return(
+    <div></div>
   );
 }
 
