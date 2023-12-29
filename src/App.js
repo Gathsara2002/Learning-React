@@ -14,6 +14,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import About from './Component/About';
 import Contact from './Component/Contact';
 import Home from './Component/Home';
+import ContactDetails from './Component/ContactDetails';
 
 // //let myVar = "Gathsara";
 
@@ -335,6 +336,7 @@ const App = () => {
         <Route path='/' Component={Home} />
         <Route path='/about' Component={About} />
         <Route path='/contact' Component={Contact} />
+        <Route path='/contact/details' Component={ContactDetails} />
       </Routes>
     </BrowserRouter>
   );
