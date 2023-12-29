@@ -15,6 +15,7 @@ import About from './Component/About';
 import Contact from './Component/Contact';
 import Home from './Component/Home';
 import ContactDetails from './Component/ContactDetails';
+import User from './Component/User';
 
 // //let myVar = "Gathsara";
 
@@ -336,6 +337,7 @@ const App = () => {
         <Route path='/' Component={Home} />
         <Route path='/about' Component={About} />
         <Route path='/contact' Component={Contact} />
+        <Route path='/contact/:id' Component={User} />
         <Route path='/contact/details' Component={ContactDetails} />
       </Routes>
     </BrowserRouter>
