@@ -10,7 +10,10 @@ import './App.css';
 import { Fragment, useEffect, useState } from "react";
 import Unit from './Component/Unit';
 import Header from './Component/Header';
-import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import About from './Component/About';
+import Contact from './Component/Contact';
+import Home from './Component/Home';
 
 // //let myVar = "Gathsara";
 
@@ -325,9 +328,15 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 
 // export default App;
 
-const App=()=>{
-  return(
-    <div></div>
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' Component={Home} />
+        <Route path='/about' Component={About} />
+        <Route path='/contact' Component={Contact} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
