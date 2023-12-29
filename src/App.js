@@ -16,6 +16,7 @@ import Contact from './Component/Contact';
 import Home from './Component/Home';
 import ContactDetails from './Component/ContactDetails';
 import User from './Component/User';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // //let myVar = "Gathsara";
 
@@ -330,17 +331,57 @@ import User from './Component/User';
 
 // export default App;
 
+//normal way of routing
+// const App = () => {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path='/' Component={Home} />
+//         <Route path='/about' Component={About} />
+//         <Route path='/contact' Component={Contact} />
+//         <Route path='/contact/:id' Component={User} />
+//         <Route path='/contact/details' Component={ContactDetails} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
+
+//new version way of routing
+
+const router = createBrowserRouter(
+  [
+    {
+      path:'/',
+      element:<Home/>
+    },
+    {
+      path:'/about',
+      element:<About/>
+    },
+    {
+      path:'/contact',
+      element:<Contact/>
+    },
+    {
+      path:'/contact/details',
+      element:<ContactDetails/>
+    },
+    {
+      path:'/contact/:id',
+      element:<User/>
+    }
+  ]
+);
+
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' Component={Home} />
-        <Route path='/about' Component={About} />
-        <Route path='/contact' Component={Contact} />
-        <Route path='/contact/:id' Component={User} />
-        <Route path='/contact/details' Component={ContactDetails} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <RouterProvider router={router}>
+
+      </RouterProvider>
+    </div>
   );
 }
 
