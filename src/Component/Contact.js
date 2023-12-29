@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { flushSync } from 'react-dom';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Header from './Header';
 
 const Contact = () => {
 
@@ -27,6 +28,7 @@ const Contact = () => {
 
   return (
     <ContactContainer>
+      <Header/>
       Contact Page
       <button onClick={() => { setTheme(prev => (prev ? false : true)) }}>Change Theme</button>
       <ContactBlock>

@@ -17,6 +17,8 @@ import Home from './Component/Home';
 import ContactDetails from './Component/ContactDetails';
 import User from './Component/User';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Project from './Component/Project';
+import styled from 'styled-components';
 
 // //let myVar = "Gathsara";
 
@@ -353,16 +355,16 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 const router = createBrowserRouter(
   [
     {
-      path:'/',
-      element:<Home/>
+      path: '/',
+      element: <Home />
     },
     {
-      path:'/about',
-      element:<About/>
+      path: '/about',
+      element: <About />
     },
     {
-      path:'/contact',
-      element:<Contact/>
+      path: '/contact',
+      element: <Contact />
     },
     // {
     //   path:'/contact/details',
@@ -372,22 +374,26 @@ const router = createBrowserRouter(
     //   path:'/contact/:id',
     //   element:<User/>
     // }
-    
+
     {
-      path:'/project',
-      element:<User/>
+      path: '/project',
+      element: <Project />
     }
   ]
 );
 
 const App = () => {
   return (
-    <div>
+    <AppContainer>
       <RouterProvider router={router}>
-
       </RouterProvider>
-    </div>
+    </AppContainer>
   );
 }
 
 export default App;
+
+const AppContainer=styled.main`
+  width: 98.9vw;
+  overflow-x: hidden;
+`
