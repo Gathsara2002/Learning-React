@@ -364,12 +364,17 @@ const router = createBrowserRouter(
       path:'/contact',
       element:<Contact/>
     },
+    // {
+    //   path:'/contact/details',
+    //   element:<ContactDetails/>
+    // },
+    // {
+    //   path:'/contact/:id',
+    //   element:<User/>
+    // }
+    
     {
-      path:'/contact/details',
-      element:<ContactDetails/>
-    },
-    {
-      path:'/contact/:id',
+      path:'/project',
       element:<User/>
     }
   ]
