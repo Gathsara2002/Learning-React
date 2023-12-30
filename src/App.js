@@ -1,5 +1,4 @@
 // import logo from './logo.svg';
-import './App.css';
 // import Main from '../src/Component/Main';
 // import Task from './Component/Task';
 // //export default - import myData from './Data/myData';
@@ -7,6 +6,7 @@ import './App.css';
 // import Content from './Component/Content';
 // import { useState } from 'react';
 
+import './App.css';
 import { Fragment, useEffect, useState } from "react";
 import Unit from './Component/Unit';
 import Header from './Component/Header';
@@ -393,7 +393,7 @@ const App = () => {
 
 export default App;
 
-const AppContainer=styled.main`
+const AppContainer = styled.main`
   width: 98.9vw;
   overflow-x: hidden;
 `
